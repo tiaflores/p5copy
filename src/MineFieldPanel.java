@@ -14,11 +14,11 @@ public class MineFieldPanel extends JPanel {
 	public RandomWalk walk;
 	public int scoreLives = 5;
 	public int score;
+	
 
 	
 	
 	public MineFieldPanel(int width, int height) {
-		
 		
 		
 		grid = new MineFieldButton[width][height];
@@ -52,7 +52,7 @@ public class MineFieldPanel extends JPanel {
 				walk = new RandomWalk(width);
 				
 				walk.createWalk();
-				System.out.println(walk.toString());
+				//System.out.println(walk.toString());
 				
 				
 				for(Point c : walk.getPath()) {
@@ -68,7 +68,12 @@ public class MineFieldPanel extends JPanel {
 				start.setEnabled(true);
 						
 				
+				
+				
 	}
+	
+	
+	
 	
 	
 	public class MineFieldListener implements ActionListener{
@@ -81,7 +86,7 @@ public class MineFieldPanel extends JPanel {
 			
 			int bombCount = 0;
 			
-			System.out.println("(" + clicked.getRow() +  ","  + clicked.getCol() + ")");
+			//System.out.println("(" + clicked.getRow() +  ","  + clicked.getCol() + ")");
 			
 			
 			if(clicked.getRow() - 1 >= 0) {
@@ -126,6 +131,8 @@ public class MineFieldPanel extends JPanel {
 
 			//i hate being alive 
 			
+			
+			
 			if(bombCount == 0) {
 				clicked.setBackground(Color.green);
 				score += 1;
@@ -161,6 +168,8 @@ public class MineFieldPanel extends JPanel {
 				frame.getContentPane().add(youlostText);
 				frame.pack();
 				frame.setVisible(true);
+				
+				button.setEnabled(false);
 			}
 			
 			
@@ -178,11 +187,20 @@ public class MineFieldPanel extends JPanel {
 				frame.pack();
 				frame.setVisible(true);
 				
+				button.setEnabled(false);
+				
 			}
 			
 		}}
 	
-
+	public int getScore() {
+		return score;
+	}
+	
+	public int getLives() {
+		return scoreLives;
+	}
+	
 	
 	public void hideMines() {
 		

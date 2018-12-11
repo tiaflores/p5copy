@@ -50,7 +50,22 @@ public class MineWalkerPanel extends JPanel {
 		newGame.addActionListener(new newGameListener());
 		
 		this.add(new westPanel(), BorderLayout.WEST);
+		
+		
 		this.add(new scoreBoard(score, lives), BorderLayout.EAST);
+		
+		if(scoreLives != board.getLives()) {
+			
+		scoreboardScore = board.getScore();
+		//System.out.println(scoreboardScore);
+		scoreLives = board.getLives();
+		//System.out.println(scoreLives);
+			
+		score.setText("Score: " + scoreboardScore);
+		lives.setText("Lives: " + scoreLives);
+		
+		}
+		
 		
 		
 	}
@@ -138,11 +153,6 @@ public class MineWalkerPanel extends JPanel {
 			board = new MineFieldPanel(size,size);
 			add(board, BorderLayout.CENTER);
 			board.repaint();
-			
-			
-			
-			
-			
 		}
 		
 	}

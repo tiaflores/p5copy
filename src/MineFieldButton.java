@@ -53,20 +53,7 @@ public class MineFieldButton extends JButton {
 		return col;
 	}
 	
-	public void setScore( int x) {
-		score = x;
-	}
-	public int getScore() {
-		return score;
-	}
 	
-	public void setLives(int x) {
-		lives = x;
-	}
-	
-	public int getLives() {
-		return lives;
-	}
 	
 	
 	
