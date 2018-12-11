@@ -7,6 +7,8 @@ public class MineFieldButton extends JButton {
 	public boolean isBomb;
 	public int row;
 	public int col;
+	public int lives = 5;
+	public int score;
 	
 	public MineFieldButton(int x, int y) {
 		
@@ -51,6 +53,20 @@ public class MineFieldButton extends JButton {
 		return col;
 	}
 	
+	public void setScore( int x) {
+		score = x;
+	}
+	public int getScore() {
+		return score;
+	}
+	
+	public void setLives(int x) {
+		lives = x;
+	}
+	
+	public int getLives() {
+		return lives;
+	}
 	
 	
 	

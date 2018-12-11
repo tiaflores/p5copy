@@ -21,8 +21,10 @@ public class MineWalkerPanel extends JPanel {
 	private final String[] hidePathText = {"Show Path", "Hide Path"};
 	private int hideMinesIndex;
 	private int hidePathIndex;
-	private JLabel score = new JLabel("Score: ");
-	private JLabel lives = new JLabel("Lives: ");
+	public int scoreboardScore = 0;
+	public int scoreLives = 5;
+	private JLabel score = new JLabel("Score: " + scoreboardScore);
+	private JLabel lives = new JLabel("Lives: " + scoreLives);
 
 	
 	public MineWalkerPanel(int width, int height)
@@ -104,7 +106,19 @@ public class MineWalkerPanel extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
+			board.showMines();
+			board.showPath();
 			
+			JFrame frame = new JFrame("You Lose Message");
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+			JLabel youlostText = new JLabel("You Lose!");
+			Dimension d = new Dimension(100,100);
+			
+			frame.setPreferredSize(d);
+			frame.getContentPane().add(youlostText);
+			frame.pack();
+			frame.setVisible(true);
 			
 		}
 		
